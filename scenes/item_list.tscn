@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://nb1dev1rybar"]
+
+[ext_resource type="Script" path="res://scripts/auction_generator.gd" id="1_h0yud"]
+
+[node name="ItemList" type="PanelContainer"]
+offset_right = 183.0
+offset_bottom = 540.0
+script = ExtResource("1_h0yud")
+
+[node name="ItemListScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemListScrollContainer"]
+layout_mode = 2
+
+[node name="ItemSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ItemSpawnTimer" to="." method="_on_item_spawn_timer_timeout"]

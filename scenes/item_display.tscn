@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckgiofgpj3roc"]
+
+[ext_resource type="Texture2D" uid="uid://1id4hqtmpb2b" path="res://icon.svg" id="1_n7bgm"]
+[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_5ywg2"]
+
+[node name="ItemDisplay" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_n7bgm")
+expand_mode = 3
+
+[node name="DisplayDetails" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name: Catfish"
+label_settings = ExtResource("2_5ywg2")
+
+[node name="QualityLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quality: Legendary (99)"
+label_settings = ExtResource("2_5ywg2")
+
+[node name="SizeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Size: Trash (12)"
+label_settings = ExtResource("2_5ywg2")
+
+[node name="ExpirationLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Expiration date: 9 days"
+label_settings = ExtResource("2_5ywg2")
+
+[node name="AttributesLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special attributes: None
+"
+label_settings = ExtResource("2_5ywg2")
+
+[node name="DisplayDescription" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/DisplayDescription"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/DisplayDescription/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Catfish don't just swim, some species are able to walk on land, climb walls and even breath air."
+label_settings = ExtResource("2_5ywg2")
+autowrap_mode = 3
