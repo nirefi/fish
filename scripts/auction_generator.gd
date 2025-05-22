@@ -27,12 +27,13 @@ var quality: Array = [
 
 func _ready() -> void:
 	print(get_first_char("test"))
+	create_button()
 	
 func create_button():
 	# instantiate my item template and add it to the list
 	var auction_item_instance = auction_item.instantiate()
 	item_list_container.add_child(auction_item_instance)
-	auction_item_instance.stats_label.text = "test"
+	auction_item_instance.stats_label.text = "L(99)-T(12)-9-N"
 
 
 func _on_item_spawn_timer_timeout() -> void:

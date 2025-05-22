@@ -56,6 +56,8 @@ label_settings = ExtResource("2_7i8aw")
 [node name="CompleteButton" type="Button" parent="OrderMargin/OrderDisplay/InfoPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1h1jw")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/disabled = ExtResource("4_01cdv")
 theme_override_styles/normal = ExtResource("4_5a7cq")
+disabled = true
 text = "Complete"

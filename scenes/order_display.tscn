@@ -78,7 +78,8 @@ theme_override_constants/margin_bottom = 5
 [node name="DescriptionRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/DisplayDescription/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_477h2")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[font_size=32]Hi![/font_size]
+text = "[font_size=64]Hi![/font_size]
 My son [color=pink]loves[/color] catfish. I need a catfish with a quality above 60 to surprise my boy on his special day! "
 fit_content = true

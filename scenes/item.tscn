@@ -15,8 +15,8 @@ border_width_bottom = 1
 border_color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [node name="ItemContainer" type="PanelContainer"]
-offset_right = 113.0
-offset_bottom = 60.0
+offset_right = 347.0
+offset_bottom = 102.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnwxj")
 script = ExtResource("1_ysstc")
 
@@ -51,6 +51,8 @@ label_settings = ExtResource("2_52xqe")
 
 [node name="BuyButton" type="Button" parent="ItemMargin/ItemDisplay/ItemInfoPanel"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_i0anf")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("4_s1c2d")
 text = "Bid $6.00"
