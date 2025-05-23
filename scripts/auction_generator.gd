@@ -17,50 +17,29 @@ var fish: Array = [
 	{"name": "Pike", "base": 30, "fact": "A single female pike could produce between 50,000 and 500,000 eggs in her lifetime."}
 ]
 
-var quality: Array = [
-	{"name": "Trash"},
-	{"name": "Poor"},
-	{"name": "Average"},
-	{"name": "Great"},
-	{"name": "Legendary"},
-	{"name": "Formidable"}
-]
-
 func _ready() -> void:
-<<<<<<< Updated upstream
-	print(get_first_char("test"))
-	create_button()
-=======
 	randomize()
-	create_button()
-	
->>>>>>> Stashed changes
+	print(get_first_char("test"))
 	
 func create_button():
-	# var fish_chosen = rng.randi_range(0, fish.size())
-	# print(str(fish[fish_chosen].name))
-	
 	# instantiate my item template and add it to the list
 	var auction_item_instance = auction_item.instantiate()
 	item_list_container.add_child(auction_item_instance)
-<<<<<<< Updated upstream
-	auction_item_instance.stats_label.text = "L(99)-T(12)-9-N"
-=======
->>>>>>> Stashed changes
-
 	auction_item_instance.quality_value = weighted_rand(20)
 	auction_item_instance.expiration_value = rng.randi_range(1, 10)
 	auction_item_instance.size_value = weighted_rand(4)
 
 	auction_item_instance.stats_label.text = (str(auction_item_instance.quality_value) + "-" +
 	str(auction_item_instance.size_value) + "KG-" + str(auction_item_instance.expiration_value) + "D-N")
+
 func _on_item_spawn_timer_timeout() -> void:
 	create_button()
 
 # get first char from a string and returns the single char as a string
 func get_first_char(full_word: String) -> String:
 	return full_word.left(1)
-	
+
+# fix: can be 0 (because x gets rolled as 1 and 1 - 1 is 0)
 func weighted_rand(multiplier: int):
 	var x: int
 	for i in range(5):
@@ -69,4 +48,4 @@ func weighted_rand(multiplier: int):
 			break
 		else:
 			x = i +1
-	return rng.randi_range((x) * multiplier, (x + 1) * multiplier)
+	return rng.randi_range((x - 1) * multiplier, (x) * multiplier)
