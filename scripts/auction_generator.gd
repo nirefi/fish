@@ -3,6 +3,7 @@ extends PanelContainer
 const auction_item = preload("res://scenes/item.tscn")
 @onready var item_list_container: VBoxContainer = $ItemListScrollContainer/VBoxContainer
 @onready var item_spawn_timer: Timer = $ItemSpawnTimer
+var rng = RandomNumberGenerator.new()
 
 var fish: Array = [
 	{"name": "Salmon", "base": 70, "fact": "Salmon can actually jump up to two metres, only 0.4m away from the Olympic world record!"},
@@ -26,19 +27,46 @@ var quality: Array = [
 ]
 
 func _ready() -> void:
+<<<<<<< Updated upstream
 	print(get_first_char("test"))
 	create_button()
+=======
+	randomize()
+	create_button()
+	
+>>>>>>> Stashed changes
 	
 func create_button():
+	# var fish_chosen = rng.randi_range(0, fish.size())
+	# print(str(fish[fish_chosen].name))
+	
 	# instantiate my item template and add it to the list
 	var auction_item_instance = auction_item.instantiate()
 	item_list_container.add_child(auction_item_instance)
+<<<<<<< Updated upstream
 	auction_item_instance.stats_label.text = "L(99)-T(12)-9-N"
+=======
+>>>>>>> Stashed changes
 
+	auction_item_instance.quality_value = weighted_rand(20)
+	auction_item_instance.expiration_value = rng.randi_range(1, 10)
+	auction_item_instance.size_value = weighted_rand(4)
 
+	auction_item_instance.stats_label.text = (str(auction_item_instance.quality_value) + "-" +
+	str(auction_item_instance.size_value) + "KG-" + str(auction_item_instance.expiration_value) + "D-N")
 func _on_item_spawn_timer_timeout() -> void:
 	create_button()
 
 # get first char from a string and returns the single char as a string
 func get_first_char(full_word: String) -> String:
 	return full_word.left(1)
+	
+func weighted_rand(multiplier: int):
+	var x: int
+	for i in range(5):
+		if rng.randi_range(0, 1) == 0:
+			x = i + 1
+			break
+		else:
+			x = i +1
+	return rng.randi_range((x) * multiplier, (x + 1) * multiplier)
