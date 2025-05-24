@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://diy8pgbgynueh"]
+[gd_scene load_steps=4 format=3 uid="uid://diy8pgbgynueh"]
 
 [ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="1_0sev5"]
+[ext_resource type="PackedScene" uid="uid://ckgiofgpj3roc" path="res://scenes/item_display.tscn" id="2_d1f75"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf4pt"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
@@ -114,3 +115,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sev5")
 theme_override_font_sizes/font_size = 64
 text = "Start"
+
+[node name="ItemDisplay" parent="." instance=ExtResource("2_d1f75")]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 303.0
+offset_right = 1152.0
+offset_bottom = 641.0

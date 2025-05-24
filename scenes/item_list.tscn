@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://nb1dev1rybar"]
+[gd_scene load_steps=5 format=3 uid="uid://nb1dev1rybar"]
 
 [ext_resource type="Script" path="res://scripts/auction_generator.gd" id="1_h0yud"]
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="2_leyyo"]
+[ext_resource type="StyleBox" uid="uid://c3thftap8rr8v" path="res://styles/item_header.tres" id="3_323sx"]
+[ext_resource type="LabelSettings" uid="uid://bf8j2d5vn3jeg" path="res://styles/small_label.tres" id="4_aaw0q"]
 
 [node name="ItemList" type="PanelContainer"]
 offset_bottom = 560.0
@@ -14,6 +17,59 @@ horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ItemListScrollContainer"]
 layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ItemListScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemTable" type="GridContainer" parent="ItemListScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="HeaderNameLabel" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_leyyo")
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "Name"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
+
+[node name="HeaderDetailsLabel" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_leyyo")
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "Details"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
+
+[node name="HeaderValueLabel" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "Current value"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
+
+[node name="HeaderEndsLabel" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "Ends in"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
+
+[node name="HeaderInfo" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "View info"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
+
+[node name="HeaderBidLabel" type="Label" parent="ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_323sx")
+text = "Bid"
+label_settings = ExtResource("4_aaw0q")
+horizontal_alignment = 1
 
 [node name="ItemSpawnTimer" type="Timer" parent="."]
 autostart = true
