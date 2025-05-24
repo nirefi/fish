@@ -1,74 +1,179 @@
-[gd_scene load_steps=7 format=3 uid="uid://wohwtlfamu8a"]
+[gd_scene load_steps=14 format=3 uid="uid://wohwtlfamu8a"]
 
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_ysstc"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_52xqe"]
-[ext_resource type="Texture2D" uid="uid://dfnr6ntig0gof" path="res://assets/sprites/catfish-icon.png" id="2_n7acn"]
+[ext_resource type="LabelSettings" uid="uid://bf8j2d5vn3jeg" path="res://styles/small_label.tres" id="3_6wxes"]
+[ext_resource type="StyleBox" uid="uid://c3thftap8rr8v" path="res://styles/item_header.tres" id="3_gpah7"]
 [ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_i0anf"]
-[ext_resource type="StyleBox" uid="uid://d1usgxm5gi6hb" path="res://styles/default_button_normal.tres" id="4_s1c2d"]
+[ext_resource type="StyleBox" uid="uid://dmeovbyyrdmbr" path="res://styles/item_details.tres" id="4_iettr"]
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="5_3me63"]
+[ext_resource type="StyleBox" uid="uid://d3dxokoch1r0e" path="res://styles/details_table.tres" id="8_x3mkw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnwxj"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.172549, 0.172549, 0.172549, 1)
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiq0t"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0705882, 0.686275, 0.976471, 1)
+
+[sub_resource type="Gradient" id="Gradient_xppj8"]
+offsets = PackedFloat32Array(0, 0.175325, 0.396104, 0.824675)
+colors = PackedColorArray(0.498039, 0.839216, 1, 1, 0.226872, 0.663324, 0.846094, 1, 0.0627451, 0.556863, 0.752941, 1, 0.0980392, 0.411765, 0.560784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o7p13"]
+gradient = SubResource("Gradient_xppj8")
+fill_from = Vector2(1, 0.0504587)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y27x"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+border_color = Color(0.0705882, 0.686275, 0.976471, 1)
 
 [node name="ItemContainer" type="PanelContainer"]
-offset_right = 347.0
-offset_bottom = 102.0
+custom_minimum_size = Vector2(450, 0)
+offset_right = 486.0
+offset_bottom = 63.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnwxj")
 script = ExtResource("1_ysstc")
 
-[node name="ItemMargin" type="MarginContainer" parent="."]
+[node name="ItemTable" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
 
-[node name="ItemDisplay" type="HBoxContainer" parent="ItemMargin"]
+[node name="HeaderNameLabel" type="Label" parent="ItemTable"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_fonts/font = ExtResource("5_3me63")
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "Name"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
 
-[node name="ItemIcon" type="TextureRect" parent="ItemMargin/ItemDisplay"]
+[node name="HeaderDetailsLabel" type="Label" parent="ItemTable"]
 layout_mode = 2
-texture = ExtResource("2_n7acn")
-expand_mode = 2
+theme_override_fonts/font = ExtResource("5_3me63")
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "Details"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
 
-[node name="ItemInfoPanel" type="VBoxContainer" parent="ItemMargin/ItemDisplay"]
+[node name="HeaderValueLabel" type="Label" parent="ItemTable"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "Current value"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
 
-[node name="StatsLabel" type="Label" parent="ItemMargin/ItemDisplay/ItemInfoPanel"]
+[node name="HeaderEndsLabel" type="Label" parent="ItemTable"]
 layout_mode = 2
-text = "100-45KG-9D-N"
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "Ends in"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
+
+[node name="HeaderInfo" type="Label" parent="ItemTable"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "View info"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
+
+[node name="HeaderBidLabel" type="Label" parent="ItemTable"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_gpah7")
+text = "Bid"
+label_settings = ExtResource("3_6wxes")
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="ItemTable"]
+custom_minimum_size = Vector2(67, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("4_iettr")
+text = "Catfish"
 label_settings = ExtResource("2_52xqe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ItemMargin/ItemDisplay/ItemInfoPanel"]
+[node name="StatsLabel" type="Label" parent="ItemTable"]
+custom_minimum_size = Vector2(164, 0)
 layout_mode = 2
-theme_override_constants/separation = 15
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("4_iettr")
+text = "100-45KG-10D-N"
+label_settings = ExtResource("2_52xqe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PriceLabel" type="Label" parent="ItemMargin/ItemDisplay/ItemInfoPanel/HBoxContainer"]
+[node name="PriceLabel" type="Label" parent="ItemTable"]
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_i0anf")
-theme_override_font_sizes/font_size = 32
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("4_iettr")
 text = "$20.00"
 label_settings = ExtResource("2_52xqe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="AuctionTimeLabel" type="Label" parent="ItemMargin/ItemDisplay/ItemInfoPanel/HBoxContainer"]
+[node name="AuctionTimeLabel" type="Label" parent="ItemTable"]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("3_i0anf")
 theme_override_font_sizes/font_size = 32
-text = "Ends:10s"
+theme_override_styles/normal = ExtResource("4_iettr")
+text = "10s"
 label_settings = ExtResource("2_52xqe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BuyButton" type="Button" parent="ItemMargin/ItemDisplay/ItemInfoPanel"]
+[node name="ButtonContent" type="Button" parent="ItemTable"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_i0anf")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("4_s1c2d")
-text = "Bid $6.00"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0.8, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = ExtResource("8_x3mkw")
+theme_override_styles/hover = ExtResource("8_x3mkw")
+theme_override_styles/pressed = ExtResource("8_x3mkw")
+theme_override_styles/normal = ExtResource("8_x3mkw")
+text = "INFO"
+
+[node name="ButtonContainer" type="PanelContainer" parent="ItemTable"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eiq0t")
+
+[node name="TextureRect" type="TextureRect" parent="ItemTable/ButtonContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_o7p13")
+expand_mode = 2
+
+[node name="ButtonContent" type="Button" parent="ItemTable/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
+text = "$6.00 »"
 
 [node name="AuctionTimer" type="Timer" parent="."]

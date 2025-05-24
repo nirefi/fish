@@ -1,10 +1,13 @@
 extends PanelContainer
 
-@onready var stats_label: Label = $ItemMargin/ItemDisplay/ItemInfoPanel/StatsLabel
-@onready var price_label: Label = $ItemMargin/ItemDisplay/ItemInfoPanel/HBoxContainer/PriceLabel
-@onready var buy_button: Button = $ItemMargin/ItemDisplay/ItemInfoPanel/BuyButton
-@onready var item_icon: TextureRect = $ItemMargin/ItemDisplay/ItemIcon
-@onready var auction_time_label: Label = $ItemMargin/ItemDisplay/ItemInfoPanel/HBoxContainer/AuctionTimeLabel
+@onready var header_name_label: Label = $ItemTable/HeaderNameLabel
+@onready var header_details_label: Label = $ItemTable/HeaderDetailsLabel
+@onready var header_value_label: Label = $ItemTable/HeaderValueLabel
+@onready var name_label: Label = $ItemTable/NameLabel
+@onready var stats_label: Label = $ItemTable/StatsLabel
+@onready var price_label: Label = $ItemTable/PriceLabel
+@onready var auction_time_label: Label = $ItemTable/AuctionTimeLabel
+@onready var buy_button: Button = $ItemTable/ButtonContainer/ButtonContent
 
 var name_value: String
 var quality_value: int 

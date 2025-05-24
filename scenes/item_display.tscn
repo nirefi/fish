@@ -1,81 +1,142 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckgiofgpj3roc"]
+[gd_scene load_steps=10 format=3 uid="uid://ckgiofgpj3roc"]
 
-[ext_resource type="Texture2D" uid="uid://1id4hqtmpb2b" path="res://icon.svg" id="1_n7bgm"]
+[ext_resource type="Texture2D" uid="uid://ysitj8f43bom" path="res://assets/sprites/exit.png" id="1_2mogd"]
+[ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="2_2qkad"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_5ywg2"]
+[ext_resource type="Texture2D" uid="uid://dfnr6ntig0gof" path="res://assets/sprites/catfish-icon.png" id="3_rxwjk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6mad"]
+bg_color = Color(0.952941, 0.952941, 0.992157, 0)
+border_color = Color(0.447059, 0.494118, 0.921569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2x15t"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0, 0.329412, 0.92549, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lybf0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6jal"]
+bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhgge"]
+bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+border_width_top = 2
+border_color = Color(0.881937, 0.881937, 0.881936, 1)
 
 [node name="ItemDisplay" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 435.0
+offset_bottom = 336.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e6mad")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HeaderContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2x15t")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderContainer"]
 layout_mode = 2
-texture = ExtResource("1_n7bgm")
-expand_mode = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_2qkad")
+theme_override_font_sizes/font_size = 24
+text = "Catfish"
 
-[node name="DisplayDetails" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_2mogd")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lybf0")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_rxwjk")
+expand_mode = 2
+
+[node name="DisplayDetails" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v6jal")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Name: Catfish"
+text = "Value: $200.00"
 label_settings = ExtResource("2_5ywg2")
 
-[node name="QualityLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+[node name="QualityLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quality: Legendary (99)"
 label_settings = ExtResource("2_5ywg2")
 
-[node name="SizeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+[node name="SizeLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Size: Trash (12)"
 label_settings = ExtResource("2_5ywg2")
 
-[node name="ExpirationLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+[node name="ExpirationLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Expiration date: 9 days"
 label_settings = ExtResource("2_5ywg2")
 
-[node name="AttributesLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+[node name="AttributesLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Special attributes: None
 "
 label_settings = ExtResource("2_5ywg2")
 
-[node name="DisplayDescription" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="DisplayDescription" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhgge")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/DisplayDescription"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/DisplayDescription"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/DisplayDescription/MarginContainer"]
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/DisplayDescription/MarginContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Catfish don't just swim, some species are able to walk on land, climb walls and even breath air."
