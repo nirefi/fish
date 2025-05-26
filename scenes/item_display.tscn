@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckgiofgpj3roc"]
+[gd_scene load_steps=10 format=3 uid="uid://ckgiofgpj3roc"]
 
 [ext_resource type="Texture2D" uid="uid://ysitj8f43bom" path="res://assets/sprites/exit.png" id="1_2mogd"]
-[ext_resource type="Script" path="res://scenes/item_display.gd" id="1_eswq5"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="2_2qkad"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_5ywg2"]
 [ext_resource type="Texture2D" uid="uid://dfnr6ntig0gof" path="res://assets/sprites/catfish-icon.png" id="3_rxwjk"]
@@ -40,7 +39,6 @@ border_color = Color(0.881937, 0.881937, 0.881936, 1)
 offset_right = 435.0
 offset_bottom = 336.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e6mad")
-script = ExtResource("1_eswq5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
