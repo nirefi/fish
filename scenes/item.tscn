@@ -44,12 +44,12 @@ theme_override_constants/v_separation = 0
 columns = 6
 
 [node name="NameLabel" type="Label" parent="ItemTable"]
-custom_minimum_size = Vector2(67, 0)
+custom_minimum_size = Vector2(91, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/normal = ExtResource("4_iettr")
-text = "Catfish"
+text = "Snapper"
 label_settings = ExtResource("2_52xqe")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,7 +85,7 @@ label_settings = ExtResource("2_52xqe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonContent" type="Button" parent="ItemTable"]
+[node name="InfoButton" type="Button" parent="ItemTable"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0.8, 1)

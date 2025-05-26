@@ -3,6 +3,8 @@ extends PanelContainer
 const auction_item = preload("res://scenes/item.tscn")
 @onready var item_list_container: VBoxContainer = $ItemListScrollContainer/VBoxContainer
 @onready var item_spawn_timer: Timer = $ItemSpawnTimer
+@onready var item_table: GridContainer = $ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable
+
 var rng = RandomNumberGenerator.new()
 
 var fish: Array = [
@@ -25,10 +27,19 @@ func create_button():
 	# instantiate my item template and add it to the list
 	var auction_item_instance = auction_item.instantiate()
 	item_list_container.add_child(auction_item_instance)
+	auction_item_instance.name_label.reparent(item_table)
+	auction_item_instance.stats_label.reparent(item_table)
+	auction_item_instance.price_label.reparent(item_table)
+	auction_item_instance.auction_time_label.reparent(item_table)
+	auction_item_instance.info_button.reparent(item_table)
+	auction_item_instance.buy_button.reparent(item_table)
+	
+	auction_item_instance.name_value = rng.randi_range(0, fish.size() - 1)
 	auction_item_instance.quality_value = weighted_rand(20)
 	auction_item_instance.expiration_value = rng.randi_range(1, 10)
 	auction_item_instance.size_value = weighted_rand(4)
 
+	auction_item_instance.name_label.text = fish[auction_item_instance.name_value].name
 	auction_item_instance.stats_label.text = (str(auction_item_instance.quality_value) + "-" +
 	str(auction_item_instance.size_value) + "KG-" + str(auction_item_instance.expiration_value) + "D-N")
 
@@ -40,12 +51,10 @@ func get_first_char(full_word: String) -> String:
 	return full_word.left(1)
 
 # fix: can be 0 (because x gets rolled as 1 and 1 - 1 is 0)
-func weighted_rand(multiplier: int):
-	var x: int
+func weighted_rand(multiplier: int) -> int:
+	var x: int = 5
 	for i in range(5):
 		if rng.randi_range(0, 1) == 0:
 			x = i + 1
 			break
-		else:
-			x = i +1
-	return rng.randi_range((x - 1) * multiplier, (x) * multiplier)
+	return rng.randi_range(x * multiplier, min((x + 1) * multiplier - 1, 100))
