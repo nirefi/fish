@@ -1,9 +1,8 @@
 extends PanelContainer
 
 const auction_item = preload("res://scenes/item.tscn")
-@onready var item_list_container: VBoxContainer = $ItemListScrollContainer/VBoxContainer
 @onready var item_spawn_timer: Timer = $ItemSpawnTimer
-@onready var item_table: GridContainer = $ItemListScrollContainer/VBoxContainer/PanelContainer/ItemTable
+@onready var item_table: GridContainer = $MarginContainer/ItemListScrollContainer/GridContainer
 
 var rng = RandomNumberGenerator.new()
 
@@ -21,28 +20,29 @@ var fish: Array = [
 
 func _ready() -> void:
 	randomize()
-	print(get_first_char("test"))
 	
 func create_button():
 	# instantiate my item template and add it to the list
 	var auction_item_instance = auction_item.instantiate()
-	item_list_container.add_child(auction_item_instance)
-	auction_item_instance.name_label.reparent(item_table)
-	auction_item_instance.stats_label.reparent(item_table)
-	auction_item_instance.price_label.reparent(item_table)
-	auction_item_instance.auction_time_label.reparent(item_table)
-	auction_item_instance.info_button.reparent(item_table)
-	auction_item_instance.buy_button.reparent(item_table)
+	item_table.add_child(auction_item_instance)
 	
 	auction_item_instance.name_value = rng.randi_range(0, fish.size() - 1)
 	auction_item_instance.quality_value = weighted_rand(20)
 	auction_item_instance.expiration_value = rng.randi_range(1, 10)
 	auction_item_instance.size_value = weighted_rand(4)
-
-	auction_item_instance.name_label.text = fish[auction_item_instance.name_value].name
-	auction_item_instance.stats_label.text = (str(auction_item_instance.quality_value) + "-" +
+	auction_item_instance.price_value = (fish[auction_item_instance.name_value].base * 
+	(auction_item_instance.quality_value / 20) * (auction_item_instance.expiration_value / 5) *
+	(auction_item_instance.size_value / 5))
+	
+	auction_item_instance.icon_texture.texture = load("res://assets/sprites/" + (fish[auction_item_instance.name_value].name).to_lower() + "-icon.png")
+	
+	auction_item_instance.details_button.text = (fish[auction_item_instance.name_value].name + " " + str(auction_item_instance.quality_value) + "-" +
 	str(auction_item_instance.size_value) + "KG-" + str(auction_item_instance.expiration_value) + "D-N")
-
+	
+	auction_item_instance.current_bid_value_label.text = "$%.02f" % auction_item_instance.price_value
+	
+	auction_item_instance.bid_button.text = "Bid $" + str(auction_item_instance.price_value * 1.3) + " »"
+	auction_item_instance._on_button_content_pressed(item_table)
 func _on_item_spawn_timer_timeout() -> void:
 	create_button()
 

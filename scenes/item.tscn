@@ -40,7 +40,7 @@ bg_color = Color(0, 0, 0, 0)
 [node name="ItemContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(450, 0)
 offset_right = 450.0
-offset_bottom = 634.0
+offset_bottom = 672.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnwxj")
 script = ExtResource("1_ysstc")
 
@@ -58,6 +58,7 @@ theme_override_constants/separation = 10
 [node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_vbjyg")
+expand_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,7 +97,7 @@ theme_override_constants/separation = 5
 
 [node name="CurrentBidLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Current top bid:"
+text = "Current value:"
 label_settings = ExtResource("2_52xqe")
 horizontal_alignment = 1
 
@@ -120,7 +121,7 @@ layout_mode = 2
 texture = ExtResource("6_pp4ny")
 expand_mode = 2
 
-[node name="ButtonContent" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+[node name="BidButton" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
@@ -128,3 +129,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
 text = "Place $26.00 bid »"
 
 [node name="AuctionTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_button_content_pressed"]
