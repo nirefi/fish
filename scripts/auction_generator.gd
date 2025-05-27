@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const auction_item = preload("res://scenes/item.tscn")
+const AUCTION_ITEM = preload("res://scenes/item.tscn")
 @onready var item_spawn_timer: Timer = $ItemSpawnTimer
 @onready var item_table: GridContainer = $MarginContainer/ItemListScrollContainer/GridContainer
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 func create_button():
 	# instantiate my item template and add it to the list
-	var auction_item_instance = auction_item.instantiate()
+	var auction_item_instance = AUCTION_ITEM.instantiate()
 	item_table.add_child(auction_item_instance)
 	
 	auction_item_instance.name_value = rng.randi_range(0, fish.size() - 1)
@@ -42,7 +42,6 @@ func create_button():
 	auction_item_instance.current_bid_value_label.text = "$%.02f" % auction_item_instance.price_value
 	
 	auction_item_instance.bid_button.text = "Bid $" + str(auction_item_instance.price_value * 1.3) + " »"
-	auction_item_instance._on_button_content_pressed(item_table)
 func _on_item_spawn_timer_timeout() -> void:
 	create_button()
 

@@ -1,5 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://wohwtlfamu8a"]
 
+[ext_resource type="StyleBox" uid="uid://dxfykvwb0p6v5" path="res://styles/item_unchanged.tres" id="1_0y7na"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_ysstc"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_52xqe"]
 [ext_resource type="Texture2D" uid="uid://c4kktsll1rih7" path="res://assets/sprites/snapper-icon.png" id="2_vbjyg"]
@@ -7,18 +8,6 @@
 [ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_i0anf"]
 [ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/special_blue_text_rect.tres" id="6_pp4ny"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="8_mq3po"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnwxj"]
-bg_color = Color(0.952941, 0.952941, 0.992157, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.172549, 0.172549, 0.172549, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x0st"]
 
@@ -47,7 +36,7 @@ bg_color = Color(0, 0, 0, 0)
 custom_minimum_size = Vector2(450, 0)
 offset_right = 450.0
 offset_bottom = 662.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rnwxj")
+theme_override_styles/panel = ExtResource("1_0y7na")
 script = ExtResource("1_ysstc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -133,6 +122,9 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
 text = "Place $26.00 bid »"
 
-[node name="AuctionTimer" type="Timer" parent="."]
+[node name="ItemTime" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_button_content_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_bid_button_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://diy8pgbgynueh"]
+[gd_scene load_steps=13 format=3 uid="uid://diy8pgbgynueh"]
 
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="1_5djqf"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_vxpdb"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_d0q86"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="2_k6bht"]
+[ext_resource type="PackedScene" uid="uid://nb1dev1rybar" path="res://scenes/item_list.tscn" id="5_6b1d2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t7fm"]
 bg_color = Color(0.952941, 0.952941, 0.992157, 1)
@@ -18,6 +20,9 @@ border_width_bottom = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x21s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_youbm"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -25,44 +30,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vxpdb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2t7fm")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_5djqf")
 theme_override_font_sizes/font_size = 64
 text = "Fish Market"
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.325441, 0.325441, 0.325441, 1)
 theme_override_fonts/font = ExtResource("2_k6bht")
@@ -70,7 +74,7 @@ theme_override_font_sizes/font_size = 16
 text = "The #1 fish trading site in the universe"
 horizontal_alignment = 1
 
-[node name="BrowseButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="BrowseButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -83,7 +87,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
 text = "Browse"
 
-[node name="OffersButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="OffersButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -96,7 +100,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
 text = "Offers"
 
-[node name="StorageButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="StorageButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -109,9 +113,28 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
 text = "Storage"
 
-[node name="StatsLabel" type="Label" parent="PanelContainer/MarginContainer"]
+[node name="StatsLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
 text = "Day: 1 | Balance: $1000 | Reputation: 200"
 label_settings = ExtResource("2_d0q86")
+
+[node name="MainContentPanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 962)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_youbm")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MainContentPanel"]
+custom_minimum_size = Vector2(0, 962)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ItemList" parent="VBoxContainer/MainContentPanel/MarginContainer" instance=ExtResource("5_6b1d2")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]

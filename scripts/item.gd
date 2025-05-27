@@ -7,7 +7,8 @@ extends PanelContainer
 @onready var current_bid_value_label: Label = $MarginContainer/VBoxContainer/VBoxContainer/CurrentBidValueLabel
 @onready var current_bid_label: Label = $MarginContainer/VBoxContainer/VBoxContainer/CurrentBidLabel
 @onready var bid_button: Button = $MarginContainer/VBoxContainer/BidButtonContainer/BidButton
-const ITEM_DISPLAY = preload("res://scenes/item_display.tscn")
+@onready var item_time: Timer = $ItemTime
+const ITEM_TOP_BID = preload("res://styles/item_top_bid.tres")
 
 var name_value: int
 var quality_value: float 
@@ -18,6 +19,13 @@ var price_value: float
 var bids_array: Array
 var current_bid_price: float
 
-func _on_button_content_pressed(node):
-	var item_display_instance = ITEM_DISPLAY.instantiate()
-	node.add_child(item_display_instance)
+signal bid_pressed
+
+func _on_bid_button_pressed() -> void:
+	if Global.money > price_value:
+		Global.money -= price_value
+		bid_pressed.emit()
+		item_container.add_theme_stylebox_override("panel", ITEM_TOP_BID)
+		
+func _process(delta: float) -> void:
+	auction_time_label.text = str(item_time.time_left)
