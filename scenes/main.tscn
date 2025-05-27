@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://diy8pgbgynueh"]
+[gd_scene load_steps=10 format=3 uid="uid://diy8pgbgynueh"]
 
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="1_5djqf"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_d0q86"]
@@ -6,6 +6,17 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t7fm"]
 bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80hae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3738"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k24es"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88pqq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x21s"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -22,7 +33,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.43134, 0.43134, 0.43134, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -40,6 +50,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -56,15 +67,47 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.325441, 0.325441, 0.325441, 1)
 theme_override_fonts/font = ExtResource("2_k6bht")
 theme_override_font_sizes/font_size = 16
-text = "The #1 thing in the universe"
+text = "The #1 fish trading site in the universe"
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="BrowseButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k24es")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
 text = "Browse"
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="OffersButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k24es")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
 text = "Offers"
+
+[node name="StorageButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k24es")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_88pqq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6x21s")
+text = "Storage"
 
 [node name="StatsLabel" type="Label" parent="PanelContainer/MarginContainer"]
 layout_mode = 2

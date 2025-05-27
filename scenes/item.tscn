@@ -10,11 +10,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnwxj"]
 bg_color = Color(0.952941, 0.952941, 0.992157, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.377919, 0.377919, 0.377919, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.172549, 0.172549, 0.172549, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -46,7 +46,7 @@ bg_color = Color(0, 0, 0, 0)
 [node name="ItemContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(450, 0)
 offset_right = 450.0
-offset_bottom = 672.0
+offset_bottom = 662.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rnwxj")
 script = ExtResource("1_ysstc")
 
@@ -72,11 +72,11 @@ layout_mode = 2
 [node name="DetailsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0.8, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0.8, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0.8, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0.8, 1)
-theme_override_colors/font_color = Color(0, 0, 0.8, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_focus_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
 theme_override_fonts/font = ExtResource("2_vkku4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7x0st")

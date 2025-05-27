@@ -1,24 +1,32 @@
 [gd_scene load_steps=13 format=3 uid="uid://c2kjdeh0tfgp7"]
 
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_7i8aw"]
-[ext_resource type="StyleBox" uid="uid://c3thftap8rr8v" path="res://styles/item_header.tres" id="2_aj0xc"]
-[ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_1h1jw"]
-[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="3_8mvbr"]
-[ext_resource type="LabelSettings" uid="uid://bf8j2d5vn3jeg" path="res://styles/small_label.tres" id="3_hedri"]
-[ext_resource type="StyleBox" uid="uid://dmeovbyyrdmbr" path="res://styles/item_details.tres" id="4_7khxw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yscan"]
 bg_color = Color(0.952941, 0.952941, 0.992157, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0.172549, 0.172549, 0.172549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_207ay"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0keco"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0g4y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfgkv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_simik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpifi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjp76"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwebx"]
 bg_color = Color(1, 1, 1, 0)
@@ -46,108 +54,66 @@ bg_color = Color(0, 0, 0, 0)
 border_color = Color(0.0705882, 0.686275, 0.976471, 1)
 
 [node name="OrderContainer" type="PanelContainer"]
-offset_right = 593.0
-offset_bottom = 81.0
+offset_right = 312.0
+offset_bottom = 267.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yscan")
 
-[node name="ItemTable" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="HeaderNameLabel" type="Label" parent="ItemTable"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_8mvbr")
-theme_override_styles/normal = ExtResource("2_aj0xc")
-text = "Name"
-label_settings = ExtResource("3_hedri")
-horizontal_alignment = 1
 
-[node name="HeaderAmountLabel" type="Label" parent="ItemTable"]
+[node name="OfferDetailsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("2_aj0xc")
-text = "Amount offered"
-label_settings = ExtResource("3_hedri")
-horizontal_alignment = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_0keco")
+text = "Name: Joe Biden
+Species: Human
+Rewards:
+    - $250.00
+    - 15 Reputation
+    - Key to the bone crypt"
+label_settings = ExtResource("2_7i8aw")
+autowrap_mode = 3
 
-[node name="HeaderREPLabel" type="Label" parent="ItemTable"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("2_aj0xc")
-text = "REP offered"
-label_settings = ExtResource("3_hedri")
-horizontal_alignment = 1
-
-[node name="HeaderInfoLabel" type="Label" parent="ItemTable"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("2_aj0xc")
-text = "View info"
-label_settings = ExtResource("3_hedri")
-horizontal_alignment = 1
-
-[node name="HeadCompleteLabel" type="Label" parent="ItemTable"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("2_aj0xc")
-text = "Complete order"
-label_settings = ExtResource("3_hedri")
-horizontal_alignment = 1
-
-[node name="NameLabel" type="Label" parent="ItemTable"]
-custom_minimum_size = Vector2(140, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 1
-theme_override_styles/normal = ExtResource("4_7khxw")
-text = "Joe Biden"
-label_settings = ExtResource("2_7i8aw")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/separation = 15
 
-[node name="PriceLabel" type="Label" parent="ItemTable"]
-custom_minimum_size = Vector2(110, 0)
+[node name="BrowseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/normal = ExtResource("4_7khxw")
-text = "$200.00"
-label_settings = ExtResource("2_7i8aw")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y0g4y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qfgkv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_simik")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rpifi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hjp76")
+text = "Details"
 
-[node name="AuctionTimeLabel" type="Label" parent="ItemTable"]
-custom_minimum_size = Vector2(103, 0)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_fonts/font = ExtResource("3_1h1jw")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("4_7khxw")
-text = "200 REP"
-label_settings = ExtResource("2_7i8aw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonContent" type="Button" parent="ItemTable"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0.8, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_207ay")
-text = "INFO"
-
-[node name="CompleteContainer" type="PanelContainer" parent="ItemTable"]
+[node name="CompleteContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_gwebx")
 
-[node name="TextureRect" type="TextureRect" parent="ItemTable/CompleteContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/CompleteContainer"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_klx6d")
 expand_mode = 2
 
-[node name="ButtonComplete" type="Button" parent="ItemTable/CompleteContainer"]
+[node name="ButtonComplete" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CompleteContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_qo80i")
+disabled = true
 text = "Complete »"
