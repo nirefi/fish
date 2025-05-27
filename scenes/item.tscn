@@ -1,17 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://wohwtlfamu8a"]
+[gd_scene load_steps=15 format=3 uid="uid://wohwtlfamu8a"]
 
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_ysstc"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_52xqe"]
 [ext_resource type="Texture2D" uid="uid://c4kktsll1rih7" path="res://assets/sprites/snapper-icon.png" id="2_vbjyg"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="2_vkku4"]
 [ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_i0anf"]
-[ext_resource type="StyleBox" uid="uid://dmeovbyyrdmbr" path="res://styles/item_details.tres" id="4_iettr"]
 [ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/special_blue_text_rect.tres" id="6_pp4ny"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="8_mq3po"]
-[ext_resource type="StyleBox" uid="uid://d3dxokoch1r0e" path="res://styles/details_table.tres" id="8_x3mkw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnwxj"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.952941, 0.952941, 0.992157, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -21,6 +19,14 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x0st"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8oqn0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3cwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0ob0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiq0t"]
 bg_color = Color(1, 1, 1, 0)
@@ -73,10 +79,10 @@ theme_override_colors/font_focus_color = Color(0, 0, 0.8, 1)
 theme_override_colors/font_color = Color(0, 0, 0.8, 1)
 theme_override_fonts/font = ExtResource("2_vkku4")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = ExtResource("8_x3mkw")
-theme_override_styles/hover = ExtResource("8_x3mkw")
-theme_override_styles/pressed = ExtResource("8_x3mkw")
-theme_override_styles/normal = ExtResource("8_x3mkw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7x0st")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8oqn0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s3cwb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v0ob0")
 text = "Snapper 100-45KG-10D-N"
 
 [node name="AuctionTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -85,7 +91,6 @@ size_flags_horizontal = 10
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("3_i0anf")
-theme_override_styles/normal = ExtResource("4_iettr")
 text = "Closes: 10s"
 label_settings = ExtResource("2_52xqe")
 horizontal_alignment = 1
