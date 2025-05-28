@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://daabs58aoivc8"
-path="res://.godot/imported/LiberationSans-Regular.ttf-9fe45abacb917af4a9732e1b34f0b545.fontdata"
+uid="uid://t2hpkutmm130"
+path="res://.godot/imported/ArchivoBlack-Regular.ttf-2072c540025d966aae00ccf326200b77.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/LiberationSans-Regular.ttf"
-dest_files=["res://.godot/imported/LiberationSans-Regular.ttf-9fe45abacb917af4a9732e1b34f0b545.fontdata"]
+source_file="res://assets/fonts/ArchivoBlack-Regular.ttf"
+dest_files=["res://.godot/imported/ArchivoBlack-Regular.ttf-2072c540025d966aae00ccf326200b77.fontdata"]
 
 [params]
 

@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://diy8pgbgynueh"]
+[gd_scene load_steps=14 format=3 uid="uid://diy8pgbgynueh"]
 
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="1_5djqf"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vxpdb"]
 [ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_d0q86"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="2_k6bht"]
 [ext_resource type="PackedScene" uid="uid://nb1dev1rybar" path="res://scenes/item_list.tscn" id="5_6b1d2"]
+[ext_resource type="PackedScene" uid="uid://ck81xid0a5k6l" path="res://scenes/offers_list.tscn" id="5_hvols"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t7fm"]
-bg_color = Color(0.952941, 0.952941, 0.992157, 1)
+bg_color = Color(0.0941176, 0.0941176, 0.105882, 1)
 border_width_bottom = 4
+border_color = Color(0.244776, 0.244776, 0.244776, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80hae"]
 
@@ -21,7 +23,7 @@ border_width_bottom = 4
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x21s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_youbm"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.152941, 0.152941, 0.164706, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -47,9 +49,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2t7fm")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
@@ -61,14 +63,14 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_5djqf")
 theme_override_font_sizes/font_size = 64
 text = "Fish Market"
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_color = Color(0.76662, 0.76662, 0.76662, 1)
 theme_override_fonts/font = ExtResource("2_k6bht")
 theme_override_font_sizes/font_size = 16
 text = "The #1 fish trading site in the universe"
@@ -77,8 +79,10 @@ horizontal_alignment = 1
 [node name="BrowseButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
@@ -90,8 +94,10 @@ text = "Browse"
 [node name="OffersButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
@@ -103,8 +109,10 @@ text = "Offers"
 [node name="StorageButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_80hae")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y3738")
@@ -124,17 +132,23 @@ custom_minimum_size = Vector2(0, 962)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_youbm")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MainContentPanel"]
-custom_minimum_size = Vector2(0, 962)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+[node name="OffersContainer" parent="VBoxContainer/MainContentPanel" instance=ExtResource("5_hvols")]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -351.0
+offset_right = 351.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ItemList" parent="VBoxContainer/MainContentPanel/MarginContainer" instance=ExtResource("5_6b1d2")]
+[node name="ItemList" parent="VBoxContainer/MainContentPanel" instance=ExtResource("5_6b1d2")]
 layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1925.0
+offset_bottom = 957.0
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]

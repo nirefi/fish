@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wohwtlfamu8a"]
+[gd_scene load_steps=16 format=3 uid="uid://wohwtlfamu8a"]
 
 [ext_resource type="StyleBox" uid="uid://dxfykvwb0p6v5" path="res://styles/item_unchanged.tres" id="1_0y7na"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_ysstc"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c4kktsll1rih7" path="res://assets/sprites/snapper-icon.png" id="2_vbjyg"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="2_vkku4"]
 [ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_i0anf"]
-[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/special_blue_text_rect.tres" id="6_pp4ny"]
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="6_pp4ny"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="8_mq3po"]
+[ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="9_1vbcr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x0st"]
 
@@ -18,12 +19,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0ob0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiq0t"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.0705882, 0.686275, 0.976471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y27x"]
 content_margin_left = 15.0
@@ -61,11 +60,11 @@ layout_mode = 2
 [node name="DetailsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0.4, 0.8, 1)
-theme_override_colors/font_hover_color = Color(0, 0.4, 0.8, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.4, 0.8, 1)
-theme_override_colors/font_focus_color = Color(0, 0.4, 0.8, 1)
-theme_override_colors/font_color = Color(0, 0.4, 0.8, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
 theme_override_fonts/font = ExtResource("2_vkku4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7x0st")
@@ -97,13 +96,14 @@ horizontal_alignment = 1
 
 [node name="CurrentBidValueLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_mq3po")
 theme_override_font_sizes/font_size = 49
 text = "$20.00"
 horizontal_alignment = 1
 
 [node name="BidButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+clip_children = 2
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -115,12 +115,22 @@ layout_mode = 2
 texture = ExtResource("6_pp4ny")
 expand_mode = 2
 
-[node name="BidButton" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+[node name="BidText" type="Label" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_1vbcr")
+theme_override_font_sizes/font_size = 36
 text = "Place $26.00 bid »"
+horizontal_alignment = 1
+
+[node name="BidButton" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_1vbcr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
 
 [node name="ItemTime" type="Timer" parent="."]
 wait_time = 10.0
