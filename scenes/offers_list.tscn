@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck81xid0a5k6l"]
+[gd_scene load_steps=9 format=3 uid="uid://ck81xid0a5k6l"]
 
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_f58a4"]
-[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_eq67y"]
 [ext_resource type="FontFile" uid="uid://ccwh3re7anpp4" path="res://assets/fonts/Carlito-BoldItalic.ttf" id="2_lujms"]
 [ext_resource type="Texture2D" uid="uid://cpownkrewksof" path="res://assets/sprites/trash-icon.png" id="3_8af1p"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="3_cgi72"]
@@ -20,6 +19,19 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="Gradient" id="Gradient_wfh83"]
+offsets = PackedFloat32Array(0, 0.625, 0.75, 1)
+colors = PackedColorArray(0.243137, 0.819608, 0.454902, 1, 0.243137, 0.819608, 0.454902, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 16
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_64muk"]
+gradient = SubResource("Gradient_wfh83")
+width = 32
+height = 29
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="OffersContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(1920, 0)
@@ -58,18 +70,16 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainerInbox/OffersItemPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ReadColorRect" type="ColorRect" parent="MarginContainer/HSplitContainer/VBoxContainerInbox/OffersItemPanel/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(29, 0)
+[node name="ReadColorRect" type="TextureRect" parent="MarginContainer/HSplitContainer/VBoxContainerInbox/OffersItemPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-color = Color(0.243137, 0.819608, 0.454902, 1)
+texture = SubResource("GradientTexture2D_64muk")
 
 [node name="SenderLabel" type="Label" parent="MarginContainer/HSplitContainer/VBoxContainerInbox/OffersItemPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_f58a4")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
 text = "Joe Biden"
-label_settings = ExtResource("2_eq67y")
 
 [node name="TrashIcon" type="TextureRect" parent="MarginContainer/HSplitContainer/VBoxContainerInbox/OffersItemPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(24, 24)
