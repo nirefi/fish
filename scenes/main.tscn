@@ -152,3 +152,5 @@ offset_right = 1925.0
 offset_bottom = 957.0
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/OffersButton" to="." method="_on_offers_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StorageButton" to="." method="_on_storage_button_pressed"]

@@ -137,4 +137,9 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="PanelDisabled" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_bid_button_pressed"]
+[connection signal="timeout" from="ItemTime" to="." method="_on_item_time_timeout"]
