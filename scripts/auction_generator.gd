@@ -1,11 +1,15 @@
 extends PanelContainer
 
+# define the const item scene
 const AUCTION_ITEM = preload("res://scenes/item.tscn")
+# define the nodes variables
 @onready var item_spawn_timer: Timer = $ItemSpawnTimer
 @onready var item_table: GridContainer = $MarginContainer/ItemListScrollContainer/GridContainer
 
+# define the rng variable
 var rng = RandomNumberGenerator.new()
 
+# defining the fish array of dictionaries
 var fish: Array = [
 	{"name": "Salmon", "base": 70, "fact": "Salmon can actually jump up to two metres, only 0.4m away from the Olympic world record!"},
 	{"name": "Tuna", "base": 80, "fact": "The bluefin tuna is the largest tuna species. It can grow up to 4m long and weight up to 800kgs!"},
@@ -19,6 +23,7 @@ var fish: Array = [
 ]
 
 func _ready() -> void:
+	# randomise the seed
 	randomize()
 	
 func create_button():
@@ -26,14 +31,17 @@ func create_button():
 	var auction_item_instance = AUCTION_ITEM.instantiate()
 	item_table.add_child(auction_item_instance)
 	
+	# set the names, qualities, expirations, size and price
 	auction_item_instance.name_value = rng.randi_range(0, fish.size() - 1)
 	auction_item_instance.quality_value = weighted_rand(20)
 	auction_item_instance.expiration_value = rng.randi_range(1, 10)
 	auction_item_instance.size_value = weighted_rand(4)
+	# little thingy to give the fish a value
 	auction_item_instance.price_value = (fish[auction_item_instance.name_value].base * 
 	(auction_item_instance.quality_value / 20) * (auction_item_instance.expiration_value / 5) *
 	(auction_item_instance.size_value / 5))
 	
+	# set the item icon by putting the name together jigsaw style
 	auction_item_instance.icon_texture.texture = load("res://assets/sprites/" + (fish[auction_item_instance.name_value].name).to_lower() + "-icon.png")
 	
 	auction_item_instance.details_button.text = (fish[auction_item_instance.name_value].name + " " + str(auction_item_instance.quality_value) + "-" +

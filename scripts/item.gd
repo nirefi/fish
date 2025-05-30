@@ -33,6 +33,7 @@ func _on_bid_button_pressed() -> void:
 		current_bid_price = price_value * BID_PRICE_MULTIPLIER
 	# if your money is bigger than or equal to the price of the item
 	if Global.money >= current_bid_price:
+		# set the timer to be the current time + 5 seconds
 		item_time.start(item_time.time_left + 5)
 		Global.money -= current_bid_price
 		item_container.add_theme_stylebox_override("panel", ITEM_TOP_BID)
@@ -41,6 +42,7 @@ func _on_bid_button_pressed() -> void:
 		bids_array.append(Global.username)
 		
 func _process(delta: float) -> void:
+	# if the timer hasnt ended set the auction end time
 	if item_time.time_left != 0:
 		auction_time_label.text = "Closes: " + str(round(item_time.time_left)) + "s"
 
