@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cftr0ykwep66e"]
+
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_xomff"]
+[ext_resource type="Texture2D" uid="uid://cpownkrewksof" path="res://assets/sprites/trash-icon.png" id="2_0hkgv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5hq1"]
+bg_color = Color(0.0862745, 0.0862745, 0.0980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18534, 0.185343, 0.204029, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Gradient" id="Gradient_wfh83"]
+offsets = PackedFloat32Array(0, 0.625, 0.75, 1)
+colors = PackedColorArray(0.243137, 0.819608, 0.454902, 1, 0.243137, 0.819608, 0.454902, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 16
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1u4o"]
+gradient = SubResource("Gradient_wfh83")
+width = 32
+height = 29
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="OffersItemPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(650, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_t5hq1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReadColorRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_c1u4o")
+
+[node name="SenderLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_xomff")
+theme_override_font_sizes/font_size = 26
+text = "Joe Biden"
+
+[node name="TrashIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_0hkgv")
+expand_mode = 3
+
+[node name="DetailsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(624, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_xomff")
+theme_override_font_sizes/font_size = 28
+text = "Welcome to your Finbox™!"
+clip_text = true

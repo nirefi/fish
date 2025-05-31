@@ -5,9 +5,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gack0"]
 
 [node name="ItemList" type="PanelContainer"]
-custom_minimum_size = Vector2(1920, 0)
-offset_right = 10.0
-offset_bottom = 10.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gack0")
 script = ExtResource("1_h0yud")
 
@@ -24,8 +26,6 @@ horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/ItemListScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4
