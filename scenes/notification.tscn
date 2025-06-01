@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://2uq7k0rvpcik"]
+
+[ext_resource type="Texture2D" uid="uid://pjijcfwkl75c" path="res://assets/sprites/price_down_notif.png" id="1_n57xy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3pg2"]
+bg_color = Color(0.0941176, 0.0941176, 0.105882, 0.607843)
+
+[node name="Notification" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3pg2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_n57xy")
