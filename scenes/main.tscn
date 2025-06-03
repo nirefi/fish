@@ -190,6 +190,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_youbm")
 
 [node name="NotificationMargin" type="MarginContainer" parent="VBoxContainer/MainContentPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
