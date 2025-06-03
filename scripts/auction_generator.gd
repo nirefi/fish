@@ -50,6 +50,7 @@ func create_button():
 	auction_item_instance.current_bid_value_label.text = "$%.02f" % auction_item_instance.price_value
 	
 	auction_item_instance.bid_text.text = "Place $" + str(Global.round_place(auction_item_instance.price_value * auction_item_instance.BID_PRICE_MULTIPLIER, 2)) + " bid »"
+
 func _on_item_spawn_timer_timeout() -> void:
 	create_button()
 

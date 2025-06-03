@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wohwtlfamu8a"]
+[gd_scene load_steps=19 format=3 uid="uid://wohwtlfamu8a"]
 
 [ext_resource type="StyleBox" uid="uid://dxfykvwb0p6v5" path="res://styles/item_unchanged.tres" id="1_0y7na"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_ysstc"]
@@ -30,6 +30,67 @@ content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_v4shi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelDisabled:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelDisabled:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_np470"]
+resource_name = "auction_closed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelDisabled:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelDisabled:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nknf"]
+_data = {
+"RESET": SubResource("Animation_v4shi"),
+"auction_closed": SubResource("Animation_np470")
+}
 
 [node name="ItemContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(450, 0)
@@ -142,6 +203,11 @@ autostart = true
 [node name="PanelDisabled" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2nknf")
+}
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_bid_button_pressed"]
 [connection signal="timeout" from="ItemTime" to="." method="_on_item_time_timeout"]

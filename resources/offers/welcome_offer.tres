@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://dd6110l3jabtm"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_v3pgh"]
+
+[resource]
+script = ExtResource("1_v3pgh")
+sender = "Fish Market"
+intro = "Welcome to your Finbox!"
+details = ["[font_size=42]Welcome![/font_size]", "This is the official Fish Market messaging service, Finbox™.", "If you have any messages they'll appear to your left! Press on them to display them on this panel here.", "New messages will appear with little green dots to their left.", "Enkoi!"]
+basic = true
+requirements = []

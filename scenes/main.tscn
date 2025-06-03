@@ -189,25 +189,17 @@ custom_minimum_size = Vector2(0, 990)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_youbm")
 
-[node name="NotificationMargin" type="MarginContainer" parent="VBoxContainer/MainContentPanel"]
-visible = false
+[node name="Notification" parent="VBoxContainer/MainContentPanel" instance=ExtResource("5_4v3s4")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -30.0
-offset_right = 40.0
-offset_bottom = 30.0
+offset_left = 0.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
 grow_vertical = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainContentPanel/NotificationMargin"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="Notification" parent="VBoxContainer/MainContentPanel/NotificationMargin/VBoxContainer" instance=ExtResource("5_4v3s4")]
-layout_mode = 2
+size_flags_horizontal = 0
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonsContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonsContainer/OffersButton" to="." method="_on_offers_button_pressed"]
