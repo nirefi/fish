@@ -6,3 +6,4 @@ class_name OfferBase
 @export var details: Array[String]
 @export var basic: bool = true
 @export var requirements: Array
+@export var exp_requirement: int

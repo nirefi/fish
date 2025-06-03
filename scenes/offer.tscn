@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cftr0ykwep66e"]
+[gd_scene load_steps=7 format=3 uid="uid://cftr0ykwep66e"]
 
+[ext_resource type="Script" path="res://offer.gd" id="1_0un0g"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_xomff"]
 [ext_resource type="Texture2D" uid="uid://cpownkrewksof" path="res://assets/sprites/trash-icon.png" id="2_0hkgv"]
 
@@ -31,6 +32,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="OffersItemPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(650, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_t5hq1")
+script = ExtResource("1_0un0g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

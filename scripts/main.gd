@@ -35,10 +35,10 @@ func update_stats():
 	# set the stats
 	day_label.text = "Day: " + str(Global.day)
 	balance_label.text = "Balance: " + str(Global.round_place(Global.money, 2))
-	exp_label.text = "Experience: " + str(Global.exp)
+	exp_label.text = "Experience: " + str(Global.player_exp)
 	
 # TODO LATER: UPDATE STATS BY A SIGNAL SENT WHEN ANY BID BUTTON IS PRESSED AS TO MAKE THIS MORE PERFORMANT
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_stats()
 	
 func hide_scenes_children(scene: Node) -> void:

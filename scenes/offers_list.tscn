@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ck81xid0a5k6l"]
 
-[ext_resource type="PackedScene" uid="uid://cftr0ykwep66e" path="res://scenes/offer.tscn" id="1_cls1p"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_f58a4"]
+[ext_resource type="Script" path="res://scripts/offers_list.gd" id="1_xol3n"]
 [ext_resource type="FontFile" uid="uid://ccwh3re7anpp4" path="res://assets/fonts/Carlito-BoldItalic.ttf" id="2_lujms"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="3_cgi72"]
 
@@ -26,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4nt1")
+script = ExtResource("1_xol3n")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -42,9 +43,6 @@ custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="OffersItemPanel" parent="MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cls1p")]
 layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
@@ -82,3 +80,8 @@ If you have any messages they'll appear to your left! Press on them to display t
 New messages will appear with little green dots to their left.
 Enkoi!"
 fit_content = true
+
+[node name="OfferSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="OfferSpawnTimer" to="." method="_on_offer_spawn_timer_timeout"]
