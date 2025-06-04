@@ -6,6 +6,12 @@
 script = ExtResource("1_v3pgh")
 sender = "Fish Market"
 intro = "Welcome to your Finbox!"
-details = ["[font_size=42]Welcome![/font_size]", "This is the official Fish Market messaging service, Finbox™.", "If you have any messages they'll appear to your left! Press on them to display them on this panel here.", "New messages will appear with little green dots to their left.", "Enkoi!"]
-basic = true
+details = "[font_size=42]Welcome![/font_size]
+This is the official Fish Market messaging service, Finbox™.
+If you have any messages they'll appear to your left! Press on them to display them on this panel here.
+New messages will appear with little green dots to their left.
+Enkoi!"
 requirements = []
+exp_requirement = 0
+rarity = 1.0
+has_requirements = false

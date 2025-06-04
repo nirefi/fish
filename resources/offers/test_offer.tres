@@ -6,7 +6,8 @@
 script = ExtResource("1_660n4")
 sender = "TEST"
 intro = "TEST"
-details = Array[String]([])
+details = "TESTNG !!"
 basic = true
 requirements = []
 exp_requirement = 0
+rarity = 1.0

@@ -33,4 +33,8 @@ columns = 4
 [node name="ItemSpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="AIMoveTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="ItemSpawnTimer" to="." method="_on_item_spawn_timer_timeout"]
+[connection signal="timeout" from="AIMoveTimer" to="." method="_on_ai_move_timer_timeout"]

@@ -8,6 +8,7 @@ var items_held: Array
 var all_offers: Array[OfferBase]
 var current_offers: Array[OfferBase]
 var unused_offers: Array[OfferBase]
+var sanity: int = 120
 
 func _ready() -> void:
 	load_offers("res://resources/offers/")

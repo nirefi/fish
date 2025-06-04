@@ -5,8 +5,9 @@ const ITEM_LIST = preload("res://scenes/item_list.tscn")
 const OFFERS_LIST = preload("res://scenes/offers_list.tscn")
 @onready var balance_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/BalanceLabel
 @onready var exp_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/ExpLabel
-@onready var sanity_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/SanityLabel
 @onready var day_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/DayLabel
+@onready var sanity_progress: ProgressBar = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/SanityLabel/SanityContainer/SanityProgress
+@onready var sanity_timer: Timer = $SanityTimer
 
 func _ready() -> void:
 	update_stats()
@@ -16,6 +17,8 @@ func _on_browse_button_pressed() -> void:
 	if main_content_panel.has_node("ItemList"):
 		main_content_panel.get_node("ItemList").visible = true
 	else:
+		if sanity_timer.is_stopped():
+			sanity_timer.start()
 		var item_list_instance = ITEM_LIST.instantiate()
 		main_content_panel.add_child(item_list_instance)
 
@@ -24,6 +27,8 @@ func _on_offers_button_pressed() -> void:
 	if main_content_panel.has_node("OffersContainer"):
 		main_content_panel.get_node("OffersContainer").visible = true
 	else:
+		if sanity_timer.is_stopped():
+			sanity_timer.start()
 		var offers_list_instance = OFFERS_LIST.instantiate()
 		main_content_panel.add_child(offers_list_instance)
 
@@ -36,6 +41,9 @@ func update_stats():
 	day_label.text = "Day: " + str(Global.day)
 	balance_label.text = "Balance: " + str(Global.round_place(Global.money, 2))
 	exp_label.text = "Experience: " + str(Global.player_exp)
+	if sanity_timer.is_stopped():
+		return
+	sanity_progress.value = (sanity_timer.time_left / Global.sanity) * 100
 	
 # TODO LATER: UPDATE STATS BY A SIGNAL SENT WHEN ANY BID BUTTON IS PRESSED AS TO MAKE THIS MORE PERFORMANT
 func _process(_delta: float) -> void:
