@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cftr0ykwep66e"]
+[gd_scene load_steps=16 format=3 uid="uid://cftr0ykwep66e"]
 
-[ext_resource type="Script" path="res://offer.gd" id="1_0un0g"]
+[ext_resource type="Script" path="res://scripts/offer.gd" id="1_0un0g"]
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_xomff"]
 [ext_resource type="Texture2D" uid="uid://cpownkrewksof" path="res://assets/sprites/trash-icon.png" id="2_0hkgv"]
 [ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="4_v6nxx"]
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="6_ba20n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5hq1"]
 bg_color = Color(0.0862745, 0.0862745, 0.0980392, 1)
@@ -25,14 +26,27 @@ metadata/_snap_count = 16
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c1u4o"]
 gradient = SubResource("Gradient_wfh83")
-width = 32
-height = 29
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihko1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_043tc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ubt8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h6pmg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3858"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vwyqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlaxy"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
 
 [node name="OffersItemPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(650, 0)
@@ -55,15 +69,20 @@ layout_mode = 2
 [node name="ReadColorRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_c1u4o")
+expand_mode = 3
 
 [node name="SenderLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_xomff")
 theme_override_font_sizes/font_size = 26
 text = "Joe Biden"
 
-[node name="TrashIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TrashContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TrashIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/TrashContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -71,6 +90,14 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_0hkgv")
 expand_mode = 3
+
+[node name="TrashButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrashContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihko1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_043tc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ubt8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h6pmg")
 
 [node name="DetailsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -106,4 +133,33 @@ text = "»"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CompleteContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CompleteContainer"]
+layout_mode = 2
+texture = ExtResource("6_ba20n")
+expand_mode = 2
+
+[node name="CompleteLabel" type="Label" parent="MarginContainer/VBoxContainer/CompleteContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_v6nxx")
+theme_override_font_sizes/font_size = 36
+text = "Complete"
+horizontal_alignment = 1
+
+[node name="CompleteButton" type="Button" parent="MarginContainer/VBoxContainer/CompleteContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_v6nxx")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_nlaxy")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TrashContainer/TrashButton" to="." method="_on_trash_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/DetailsContainer/PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CompleteContainer/CompleteButton" to="." method="_on_complete_button_pressed"]

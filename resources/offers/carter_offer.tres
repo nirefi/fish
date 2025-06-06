@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://cv5ayokt05fg7"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_46ru3"]
+
+[resource]
+script = ExtResource("1_46ru3")
+sender = "Carter"
+intro = "My favourite fish is Thalassoma bifasciatum"
+details = "Unrelated, but can you get me a carp please? I don't care about any qualities. My blue wrasse craves dental. I'll give you $MONEY_REWARD."
+requirement = "Carp"
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = true
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 525.5
+exp_reward = 50

@@ -35,7 +35,7 @@ var name_value: int
 var quality_value: float 
 var size_value: float
 var expiration_value: float
-var special_value: String
+var alive_value: String
 var price_value: float
 var bids_array: Array
 var current_bid_price: float
@@ -90,7 +90,7 @@ func _on_item_time_timeout() -> void:
 	auction_time_label.text = "Auction ended!"
 	if bids_array.size() > 0:
 		if bids_array[bids_array.size() -1] == Global.username:
-			Global.items_held.append({"name" = name_value, "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "special" = special_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
+			Global.items_held.append({"name" = name_value, "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "alive" = alive_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
 			Global.player_exp += 10
 
 func weighted_rand(multiplier: int) -> int:
