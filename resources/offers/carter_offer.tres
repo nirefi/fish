@@ -17,3 +17,4 @@ rarity = 1.0
 has_requirements = true
 money_reward = 525.5
 exp_reward = 50
+repeatable = false

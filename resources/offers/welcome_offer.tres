@@ -11,7 +11,14 @@ This is the official Fish Market messaging service, Finbox™.
 If you have any messages they'll appear to your left! Press on them to display them on this panel here.
 New messages will appear with little green dots to their left.
 Enkoi!"
-requirements = []
+requirement = ""
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = false
 exp_requirement = 0
 rarity = 1.0
 has_requirements = false
+money_reward = 0.0
+exp_reward = 0
+repeatable = false

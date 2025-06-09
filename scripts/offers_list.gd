@@ -13,4 +13,4 @@ func _on_offer_spawn_timer_timeout() -> void:
 	offers_container.add_child(offer_instance)
 	
 func open_offer(offer_selected: OfferBase):
-	rich_text_label.text = offer_selected.details.replace("MONEY_REWARD", str(offer_selected.money_reward))
+	rich_text_label.text = offer_selected.details.replace("MONEY_REWARD", str(offer_selected.money_reward)).replace("FISH_NAME", offer_selected.requirement.to_lower())

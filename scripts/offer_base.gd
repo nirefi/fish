@@ -14,3 +14,4 @@ class_name OfferBase
 @export var has_requirements: bool = true
 @export var money_reward: float
 @export var exp_reward: int
+@export var repeatable: bool = false

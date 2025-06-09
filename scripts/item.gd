@@ -15,23 +15,10 @@ extends PanelContainer
 
 var rng = RandomNumberGenerator.new()
 
-# defining the fish array of dictionaries
-var fish: Array = [
-	{"name": "Salmon", "base": 70, "fact": "Salmon can actually jump up to two metres, only 0.4m away from the Olympic world record!"},
-	{"name": "Tuna", "base": 80, "fact": "The bluefin tuna is the largest tuna species. It can grow up to 4m long and weight up to 800kgs!"},
-	{"name": "Cod", "base": 40, "fact": "Cods can travel up to 320km to reach their breeding grounds during mating season!"},
-	{"name": "Trout", "base": 50, "fact": "Trouts can rapidly change colour depending on their surroundings or their mood."},
-	{"name": "Snapper", "base": 60, "fact": "Snappers have their name because of the audible snap their powerful jaws make when biting down!"},
-	{"name": "Catfish", "base": 20, "fact": "Catfish don't just swim, they can walk on land, climb walls and even breath air."},
-	{"name": "Carp", "base": 10, "fact": "Wild carp can live up to 40 years in the wild and the oldest carp was 226 years old."},
-	{"name": "Herring", "base": 10, "fact": "Herrings swim in schools that can consist of millions of fish and be as high as 100 metres."},
-	{"name": "Pike", "base": 30, "fact": "A single female pike could produce between 50,000 and 500,000 eggs in her lifetime."}
-]
-
 # declare consts and variables
 const ITEM_TOP_BID = preload("res://styles/item_top_bid.tres")
 const BID_PRICE_MULTIPLIER: float = 1.3
-var name_value: int
+var name_id: int
 var quality_value: float 
 var size_value: float
 var expiration_value: float
@@ -44,19 +31,19 @@ func _ready() -> void:
 	randomize()
 		
 	# set the names, qualities, expirations, size and price
-	name_value = rng.randi_range(0, fish.size() - 1)
+	name_id = rng.randi_range(0, Global.fish.size() - 1)
 	quality_value = weighted_rand(20)
 	expiration_value = rng.randi_range(1, 10)
 	size_value = weighted_rand(4)
 	# little thingy to give the fish a value
-	price_value = (fish[name_value].base * 
+	price_value = (Global.fish[name_id].base * 
 	(quality_value / 20) * (expiration_value / 5) *
 	(size_value / 5))
 	
 	# set the item icon by putting the name together jigsaw style
-	icon_texture.texture = load("res://assets/sprites/" + (fish[name_value].name).to_lower() + "-icon.png")
+	icon_texture.texture = load("res://assets/sprites/" + (Global.fish[name_id].name).to_lower() + "-icon.png")
 	
-	details_button.text = (fish[name_value].name + " " + str(quality_value) + "-" +
+	details_button.text = (Global.fish[name_id].name + " " + str(quality_value) + "-" +
 	str(size_value) + "KG-" + str(expiration_value) + "D-N")
 	
 	current_bid_value_label.text = "$%.02f" % price_value
@@ -90,7 +77,7 @@ func _on_item_time_timeout() -> void:
 	auction_time_label.text = "Auction ended!"
 	if bids_array.size() > 0:
 		if bids_array[bids_array.size() -1] == Global.username:
-			Global.items_held.append({"name" = name_value, "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "alive" = alive_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
+			Global.items_held.append({"name_id" = name_id, "name_value" = Global.fish[name_id["name"]], "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "alive" = alive_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
 			Global.player_exp += 10
 
 func weighted_rand(multiplier: int) -> int:

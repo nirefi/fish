@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://dxqc61uie2pao"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_6df0i"]
+
+[resource]
+script = ExtResource("1_6df0i")
+sender = "TEST EMPTY"
+intro = "EMPTY"
+details = "HI I WANT FISH_NAME
+I'LL GIVE YOU $MONEY_REWARD TAKE IT OR LEAVE IT!!"
+requirement = ""
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = false
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 600.0
+exp_reward = 0
+repeatable = false
