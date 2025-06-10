@@ -1,6 +1,8 @@
 extends Control
 
 @onready var main_content_panel: Panel = $VBoxContainer/MainContentPanel
+@onready var navbar: PanelContainer = $VBoxContainer/PanelContainer
+
 const ITEM_LIST = preload("res://scenes/item_list.tscn")
 const OFFERS_LIST = preload("res://scenes/offers_list.tscn")
 @onready var balance_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/BalanceLabel
@@ -8,6 +10,7 @@ const OFFERS_LIST = preload("res://scenes/offers_list.tscn")
 @onready var day_label: Label = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/DayLabel
 @onready var sanity_progress: ProgressBar = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StatsContainer/SanityLabel/SanityContainer/SanityProgress
 @onready var sanity_timer: Timer = $SanityTimer
+@onready var go_label: Label = $GOLabel
 
 func _ready() -> void:
 	update_stats()
@@ -52,3 +55,9 @@ func _process(_delta: float) -> void:
 func hide_scenes_children(scene: Node) -> void:
 	for child in scene.get_children():
 		child.visible = false
+
+func _on_sanity_timer_timeout() -> void:
+	hide_scenes_children(main_content_panel)
+	hide_scenes_children(navbar)
+	go_label.text = "Game over!\n You you had: $"  + str(Global.round_place(Global.money, 2))
+	go_label.visible = true

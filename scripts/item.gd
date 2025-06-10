@@ -77,7 +77,7 @@ func _on_item_time_timeout() -> void:
 	auction_time_label.text = "Auction ended!"
 	if bids_array.size() > 0:
 		if bids_array[bids_array.size() -1] == Global.username:
-			Global.items_held.append({"name_id" = name_id, "name_value" = Global.fish[name_id["name"]], "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "alive" = alive_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
+			Global.items_held.append({"name_id" = name_id, "quality" = quality_value, "size" = size_value, "expiration" = expiration_value, "alive" = alive_value, "price" = price_value, "price_bought" = current_bid_price, "bid_history" = bids_array})
 			Global.player_exp += 10
 
 func weighted_rand(multiplier: int) -> int:

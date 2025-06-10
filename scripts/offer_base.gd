@@ -15,3 +15,4 @@ class_name OfferBase
 @export var money_reward: float
 @export var exp_reward: int
 @export var repeatable: bool = false
+@export var random_requirement: bool = false
