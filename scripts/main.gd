@@ -12,6 +12,8 @@ const OFFERS_LIST = preload("res://scenes/offers_list.tscn")
 @onready var sanity_timer: Timer = $SanityTimer
 @onready var go_label: Label = $GOLabel
 
+signal update_offers
+
 func _ready() -> void:
 	update_stats()
 
@@ -34,6 +36,7 @@ func _on_offers_button_pressed() -> void:
 			sanity_timer.start()
 		var offers_list_instance = OFFERS_LIST.instantiate()
 		main_content_panel.add_child(offers_list_instance)
+	emit_signal("update_offers")
 
 func _on_storage_button_pressed() -> void:
 	# print the array of dictonary entries which is the storage. will not be adding proper display until finished minimum viable product

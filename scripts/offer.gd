@@ -3,6 +3,7 @@ extends PanelContainer
 @onready var sender_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/SenderLabel
 @onready var details_label: Label = $MarginContainer/VBoxContainer/DetailsContainer/DetailsLabel
 @onready var complete_container: PanelContainer = $MarginContainer/VBoxContainer/CompleteContainer
+@onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/CompleteContainer/TextureRect
 
 var offer_selected: OfferBase = Global.unused_offers.pick_random()
 var fish_wanted: int = 0
@@ -10,12 +11,11 @@ var fish_wanted: int = 0
 signal offer_open
 
 func _ready() -> void:
-	offer_selected.duplicate()
 	randomize()
 	
-	# FIX: CURRENTLY CODE IS MODIFYING ACTUAL RESOURCE WHEN IT DOES THIS, FIND A WAY FOR EVERY INSTANCE TO BE A CUSTOM DUPLICATION OF THE RESOURCE SO THEY CAN ALL HAVE DIFFERENT REQUIREMENTS ETC
 	if offer_selected.has_requirements:
 		if offer_selected.random_requirement:
+			offer_selected = offer_selected.duplicate()
 			var fish_chosen: Dictionary = Global.fish.pick_random()
 			offer_selected.requirement = fish_chosen["name"]
 

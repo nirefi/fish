@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://cxloj8cd5dnj2"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_u1374"]
+
+[resource]
+script = ExtResource("1_u1374")
+sender = "Seth"
+intro = "I'm dying out here"
+details = "I ate a rare water buffalo at the water market and I'm filling ill at ease. The only way to heal this weakness in me is if you can give me a fresh living carp. I'll give you $MONEY_REWARD in exchange."
+requirement = "Carp"
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = true
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 670.0
+exp_reward = 50
+repeatable = false
+random_requirement = false

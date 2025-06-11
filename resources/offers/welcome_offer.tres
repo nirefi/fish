@@ -22,3 +22,4 @@ has_requirements = false
 money_reward = 0.0
 exp_reward = 0
 repeatable = false
+random_requirement = false

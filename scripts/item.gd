@@ -22,10 +22,11 @@ var name_id: int
 var quality_value: float 
 var size_value: float
 var expiration_value: float
-var alive_value: String
+var alive_value: bool
 var price_value: float
-var bids_array: Array
+var bids_array: Array[String]
 var current_bid_price: float
+var alive_title: String
 
 func _ready() -> void:
 	randomize()
@@ -35,6 +36,12 @@ func _ready() -> void:
 	quality_value = weighted_rand(20)
 	expiration_value = rng.randi_range(1, 10)
 	size_value = weighted_rand(4)
+	if rng.randi_range(0, 1) == 0:
+		alive_value = false
+		alive_title = "D"
+	else:
+		alive_value = true
+		alive_title = "A"
 	# little thingy to give the fish a value
 	price_value = (Global.fish[name_id].base * 
 	(quality_value / 20) * (expiration_value / 5) *
@@ -44,7 +51,7 @@ func _ready() -> void:
 	icon_texture.texture = load("res://assets/sprites/" + (Global.fish[name_id].name).to_lower() + "-icon.png")
 	
 	details_button.text = (Global.fish[name_id].name + " " + str(quality_value) + "-" +
-	str(size_value) + "KG-" + str(expiration_value) + "D-N")
+	str(size_value) + "KG-" + str(expiration_value) + "D-" + alive_title)
 	
 	current_bid_value_label.text = "$%.02f" % price_value
 	

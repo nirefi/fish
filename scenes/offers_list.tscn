@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck81xid0a5k6l"]
+[gd_scene load_steps=8 format=3 uid="uid://ck81xid0a5k6l"]
 
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_f58a4"]
 [ext_resource type="Script" path="res://scripts/offers_list.gd" id="1_xol3n"]
+[ext_resource type="Resource" uid="uid://dd6110l3jabtm" path="res://resources/offers/welcome_offer.tres" id="2_hh3qg"]
 [ext_resource type="FontFile" uid="uid://ccwh3re7anpp4" path="res://assets/fonts/Carlito-BoldItalic.ttf" id="2_lujms"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="3_cgi72"]
 
@@ -27,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4nt1")
 script = ExtResource("1_xol3n")
+default_offer = ExtResource("2_hh3qg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

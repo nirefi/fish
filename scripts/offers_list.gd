@@ -1,9 +1,12 @@
 extends PanelContainer
 
 const OFFER = preload("res://scenes/offer.tscn")
+const DIM_RED_GRADIENT = preload("res://styles/dim_red_gradient.tres")
 @onready var offers_container: VBoxContainer = $MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer
 @onready var rich_text_label: RichTextLabel = $MarginContainer/HBoxContainer/VBoxContainerMessage/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel
 @onready var details_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainerMessage/PanelContainer/MarginContainer/VBoxContainer
+
+@export var default_offer: OfferBase
 
 func _on_offer_spawn_timer_timeout() -> void:
 	if Global.unused_offers.is_empty():
