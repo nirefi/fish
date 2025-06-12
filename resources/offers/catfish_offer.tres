@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://l3elth7ejp0y"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_slyef"]
+
+[resource]
+script = ExtResource("1_slyef")
+sender = "Mr Catfish"
+intro = "Hey there 😉"
+details = "It'd be lovely if you could get me a catfish, make sure it's alive and high quality. At least 80.
+- [color=#0798fa]Mr Catfish[/color] 💋"
+requirement = ""
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = false
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 0.0
+exp_reward = 0
+repeatable = false
+random_requirement = false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://wv3qtrmunb4"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_gt5ku"]
+
+[resource]
+script = ExtResource("1_gt5ku")
+sender = "Gabe"
+intro = "Need a new pet fish :("
+details = "My pet goldfish threw itself out of its enclosure :(
+I want a new pet fish, maybe a herring this time?
+I'm more than willing to pay you $MONEY_REWARD for this as long as it's alive.
+Thanks :-)"
+requirement = "Herring"
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = true
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 700.0
+exp_reward = 25
+repeatable = false
+random_requirement = false

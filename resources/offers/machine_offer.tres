@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://cv00yjvq2usy7"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_hv7ag"]
+
+[resource]
+script = ExtResource("1_hv7ag")
+sender = "Machine"
+intro = "Fish"
+details = "Fish.
+Fish.
+Have you ever been fished?
+Fish.
+Fish.
+Do they keep you in an ice box?
+Fish.
+Fish.
+What's it like to hold the body of a [color=#f4902c]salmon[/color]?
+Market.
+Market.
+Do they teach your how to fish, rod to rod?
+Market.
+Market.
+Do you long for [color=#04de49]$MONEY_REWARD?[/color]
+Market.
+Market.
+Do you dream about fished?
+Market.
+Market.
+What's it like to touch your alevin with your fins?
+Market
+Market
+Do you feel that there's a part of you that's fishing?
+Market
+Market"
+requirement = "Salmon"
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = false
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 1000.0
+exp_reward = 100
+repeatable = false
+random_requirement = false

@@ -1,15 +1,13 @@
 [gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://dxqc61uie2pao"]
 
-[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_6df0i"]
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_ye0mw"]
 
 [resource]
-script = ExtResource("1_6df0i")
+script = ExtResource("1_ye0mw")
 sender = "Old man"
 intro = "I DESPERATELY NEED HELP"
-details = "HI I WANT FISH_NAME BADLY!!
-I'LL GIVE YOU $MONEY_REWARD!!
-PLEASE!!
-IT NEEDS TO BE OF AT LEAST REQUIRED_QUALITY QUALITY AND AT LEAST REQUIRED_SIZE KGS BIG!! "
+details = "HELLOI WANT FISH_NAME BADLY!!I'LL GIVE YOU $MONEY_REWARD!! PLEASE!!
+IT NEEDS TO BE OF AT LEAST REQUIRED_QUALITY QUALITY AND AT LEAST REQUIRED_SIZE KGS!!"
 requirement = ""
 required_quality = 0
 required_size = 0

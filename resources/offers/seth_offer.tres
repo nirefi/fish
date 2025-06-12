@@ -6,7 +6,7 @@
 script = ExtResource("1_u1374")
 sender = "Seth"
 intro = "I'm dying out here"
-details = "I ate a rare water buffalo at the water market and I'm filling ill at ease. The only way to heal this weakness in me is if you can give me a fresh living carp. I'll give you $MONEY_REWARD in exchange."
+details = "I ate a rare water buffalo at the water market and I'm filling ill at ease. The only way for me to heal this ailment is if you can give me a fresh living carp. I'll give you $MONEY_REWARD in exchange."
 requirement = "Carp"
 required_quality = 0
 required_size = 0

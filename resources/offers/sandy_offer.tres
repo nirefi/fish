@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://ba3mvgwo1bdir"]
+
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_mjlps"]
+
+[resource]
+script = ExtResource("1_mjlps")
+sender = "Sandy Loam"
+intro = "I've made a terrible mistake"
+details = "I must reconcile with a friend and I think what she needs right now is a pike! Please get a big one, at least [color=#c44dbf]5kgs[/color]."
+requirement = "Pike"
+required_quality = 0
+required_size = 5
+required_expiration = 0
+required_alive = false
+exp_requirement = 0
+rarity = 1.0
+has_requirements = true
+money_reward = 470.0
+exp_reward = 60
+repeatable = false
+random_requirement = false
