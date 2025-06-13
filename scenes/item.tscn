@@ -111,6 +111,8 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+texture_filter = 2
+texture_repeat = 1
 layout_mode = 2
 texture = ExtResource("2_vbjyg")
 expand_mode = 5

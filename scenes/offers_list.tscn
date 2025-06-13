@@ -1,12 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck81xid0a5k6l"]
+[gd_scene load_steps=9 format=3 uid="uid://ck81xid0a5k6l"]
 
 [ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_f58a4"]
 [ext_resource type="Script" path="res://scripts/offers_list.gd" id="1_xol3n"]
-[ext_resource type="Resource" uid="uid://dd6110l3jabtm" path="res://resources/offers/welcome_offer.tres" id="2_hh3qg"]
 [ext_resource type="FontFile" uid="uid://ccwh3re7anpp4" path="res://assets/fonts/Carlito-BoldItalic.ttf" id="2_lujms"]
+[ext_resource type="Script" path="res://scripts/offer_base.gd" id="2_yw7kq"]
 [ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="3_cgi72"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4nt1"]
+
+[sub_resource type="Resource" id="Resource_itvcv"]
+script = ExtResource("2_yw7kq")
+sender = "Fish Market"
+intro = "Welcome to your Finbox!"
+details = "[font_size=42]Welcome![/font_size]
+This is the official Fish Market messaging service, Finbox™.
+If you have any messages they'll appear to your left! Press on them to display them on this panel here.
+New messages will appear with little green dots to their left.
+Enkoi!"
+requirement = ""
+required_quality = 0
+required_size = 0
+required_expiration = 0
+required_alive = false
+exp_requirement = 0
+rarity = 1.0
+has_requirements = false
+money_reward = 0.0
+exp_reward = 0
+repeatable = false
+random_requirement = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwji5"]
 bg_color = Color(0.0862745, 0.0862745, 0.0980392, 1)
@@ -28,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4nt1")
 script = ExtResource("1_xol3n")
-default_offer = ExtResource("2_hh3qg")
+default_offer = SubResource("Resource_itvcv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -77,7 +99,7 @@ theme_override_fonts/bold_font = ExtResource("3_cgi72")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[font_size=42]Welcome![/font_size]
-This is the official Fish Market messaging service, Finbox™.
+This is the official Pond messaging service, Finbox™.
 If you have any messages they'll appear to your left! Press on them to display them on this panel here.
 New messages will appear with little green dots to their left.
 Enkoi!"

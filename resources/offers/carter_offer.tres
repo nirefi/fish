@@ -6,7 +6,7 @@
 script = ExtResource("1_46ru3")
 sender = "Carter"
 intro = "My favourite fish is Thalassoma bifasciatum"
-details = "Unrelated, but can you get me a carp please? I don't care about any qualities. My blue wrasse craves dental. I'll give you $MONEY_REWARD."
+details = "Unrelated, but can you get me a carp please? I don't care about any specifics. My blue wrasse is a FIEND for  cleaning. I'll give you $MONEY_REWARD."
 requirement = "Carp"
 required_quality = 0
 required_size = 0
@@ -18,3 +18,4 @@ has_requirements = true
 money_reward = 525.5
 exp_reward = 50
 repeatable = false
+random_requirement = false
