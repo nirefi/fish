@@ -8,6 +8,8 @@ var items_held: Array
 var all_offers: Array[OfferBase]
 var current_offers: Array[OfferBase]
 var unused_offers: Array[OfferBase]
+var current_offer_instances: Array[Node]
+var current_item_instances: Array[Node]
 var sanity: int = 120
 
 # defining the fish array of dictionaries

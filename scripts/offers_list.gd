@@ -14,7 +14,8 @@ func _on_offer_spawn_timer_timeout() -> void:
 	var offer_instance = OFFER.instantiate()
 	offer_instance.connect("offer_open", open_offer)
 	offers_container.add_child(offer_instance)
-	
+	Global.current_offer_instances.append(offer_instance)
+
 func open_offer(offer_selected: OfferBase):
 	rich_text_label.text = (offer_selected.details
 	.replace("MONEY_REWARD", str(offer_selected.money_reward))

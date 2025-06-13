@@ -4,6 +4,8 @@ extends PanelContainer
 @onready var details_label: Label = $MarginContainer/VBoxContainer/DetailsContainer/DetailsLabel
 @onready var complete_container: PanelContainer = $MarginContainer/VBoxContainer/CompleteContainer
 @onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/CompleteContainer/TextureRect
+const RED_GRADIENT = preload("res://styles/red_gradient.tres")
+const DIM_RED_GRADIENT = preload("res://styles/dim_red_gradient.tres")
 
 var offer_selected: OfferBase = Global.unused_offers.pick_random()
 var fish_wanted: int = 0
@@ -12,6 +14,11 @@ signal offer_open
 
 func _ready() -> void:
 	randomize()
+	
+	if Global.items_held.has(offer_selected.requirement):
+		texture_rect.texture = RED_GRADIENT
+	else:
+		texture_rect.texture = DIM_RED_GRADIENT
 	
 	if offer_selected.has_requirements:
 		if offer_selected.random_requirement:
@@ -39,5 +46,8 @@ func _on_complete_button_pressed() -> void:
 			print(offer_selected.required_expiration, fish["expiration"], offer_selected.required_quality, fish["quality"], offer_selected.required_size, fish["size"])
 			if offer_selected.required_expiration <= fish["expiration"] and offer_selected.required_quality <= fish["quality"] and offer_selected.required_size <= fish["size"]:
 				Global.money += offer_selected.money_reward
+				Global.items_held.erase(fish)
+				# not 100% sure if this works
+				Global.current_offer_instances.erase(self)
 				queue_free()
 			break

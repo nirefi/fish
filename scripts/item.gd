@@ -12,6 +12,7 @@ extends PanelContainer
 @onready var bid_text: Label = $MarginContainer/VBoxContainer/BidButtonContainer/BidText
 @onready var panel_disabled: PanelContainer = $PanelDisabled
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bid_button_texture: TextureRect = $MarginContainer/VBoxContainer/BidButtonContainer/TextureRect
 
 var rng = RandomNumberGenerator.new()
 
@@ -46,6 +47,8 @@ func _ready() -> void:
 	price_value = (Global.fish[name_id].base * 
 	(quality_value / 20) * (expiration_value / 5) *
 	(size_value / 5))
+	current_bid_price = price_value
+
 	
 	# set the item icon by putting the name together jigsaw style
 	icon_texture.texture = load("res://assets/sprites/" + (Global.fish[name_id].name).to_lower() + "-icon.png")
@@ -59,11 +62,7 @@ func _ready() -> void:
 
 func _on_bid_button_pressed() -> void:
 	# if the bids array isnt empty then current_bid_price shouldnt be 0 so its fine to do this
-	if bids_array.size() > 0:
-		current_bid_price *= BID_PRICE_MULTIPLIER
-	else:
-		# current bid price will be 0 so should be the price value multiplied by it
-		current_bid_price = price_value * BID_PRICE_MULTIPLIER
+	current_bid_price *= BID_PRICE_MULTIPLIER
 	# if your money is bigger than or equal to the price of the item
 	if Global.money >= current_bid_price:
 		# set the timer to be the current time + 5 seconds
