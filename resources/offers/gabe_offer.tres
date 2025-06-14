@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OfferBase" load_steps=2 format=3 uid="uid://wv3qtrmunb4"]
 
-[ext_resource type="Script" path="res://scripts/offer_base.gd" id="1_gt5ku"]
+[ext_resource type="Script" path="res://pages/offers/scripts/offer_base.gd" id="1_gt5ku"]
 
 [resource]
 script = ExtResource("1_gt5ku")

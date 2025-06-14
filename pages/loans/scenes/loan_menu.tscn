@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://lntn07kwajej"]
+
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="1_3aknr"]
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="2_mj0ch"]
+[ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="3_ijsba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwr86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vfga"]
+bg_color = Color(0.0862745, 0.0862745, 0.0980392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqfhg"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26fgg"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="LoanMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mwr86")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CurrentLoanContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vfga")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CurrentLoanContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DetailsLabel" type="Label" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_3aknr")
+theme_override_font_sizes/font_size = 64
+text = "Current loan offer: $3000.00
+Interest rate: 10% ($300.00 per day)"
+horizontal_alignment = 1
+
+[node name="AcceptButton" type="PanelContainer" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer/VBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(340, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqfhg")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer/VBoxContainer/AcceptButton"]
+layout_mode = 2
+texture = ExtResource("2_mj0ch")
+expand_mode = 2
+
+[node name="LoanText" type="Label" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer/VBoxContainer/AcceptButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ijsba")
+theme_override_font_sizes/font_size = 48
+text = "Take loan »"
+horizontal_alignment = 1
+
+[node name="LoanButton" type="Button" parent="MarginContainer/VBoxContainer/CurrentLoanContainer/MarginContainer/VBoxContainer/AcceptButton"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ijsba")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_26fgg")
+
+[node name="OngoingLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_3aknr")
+theme_override_font_sizes/font_size = 64
+text = "Ongoing loans:"
+horizontal_alignment = 1
+
+[node name="LoansContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/LoansContainer"]
+layout_mode = 2

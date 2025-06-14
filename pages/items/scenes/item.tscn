@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=3 uid="uid://wohwtlfamu8a"]
+
+[ext_resource type="StyleBox" uid="uid://dxfykvwb0p6v5" path="res://styles/item_unchanged.tres" id="1_p54ko"]
+[ext_resource type="Script" path="res://pages/items/scripts/item.gd" id="2_lxxil"]
+[ext_resource type="Texture2D" uid="uid://c4kktsll1rih7" path="res://assets/sprites/fish-icons/snapper-icon.png" id="3_uvm47"]
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="4_ch5ha"]
+[ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="5_vgiln"]
+[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="6_oeccl"]
+[ext_resource type="FontFile" uid="uid://iqvuuoko6x0p" path="res://assets/fonts/Carlito-Bold.ttf" id="7_3lw7m"]
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="8_sjm1o"]
+[ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="9_gteqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x0st"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8oqn0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3cwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0ob0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiq0t"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y27x"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_v4shi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelDisabled:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelDisabled:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_np470"]
+resource_name = "auction_closed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelDisabled:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelDisabled:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nknf"]
+_data = {
+"RESET": SubResource("Animation_v4shi"),
+"auction_closed": SubResource("Animation_np470")
+}
+
+[node name="ItemContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(450, 0)
+offset_right = 450.0
+offset_bottom = 662.0
+theme_override_styles/panel = ExtResource("1_p54ko")
+script = ExtResource("2_lxxil")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 2
+texture = ExtResource("3_uvm47")
+expand_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DetailsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_fonts/font = ExtResource("4_ch5ha")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7x0st")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8oqn0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s3cwb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v0ob0")
+text = "Snapper 100-45KG-10D-N"
+
+[node name="AuctionTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_vgiln")
+text = "Closes: 10s"
+label_settings = ExtResource("6_oeccl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="CurrentBidLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Current value:"
+label_settings = ExtResource("6_oeccl")
+horizontal_alignment = 1
+
+[node name="CurrentBidValueLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_3lw7m")
+theme_override_font_sizes/font_size = 49
+text = "$20.00"
+horizontal_alignment = 1
+
+[node name="BidButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eiq0t")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+layout_mode = 2
+texture = ExtResource("8_sjm1o")
+expand_mode = 2
+
+[node name="BidText" type="Label" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gteqf")
+theme_override_font_sizes/font_size = 36
+text = "Place $26.00 bid »"
+horizontal_alignment = 1
+
+[node name="BidButton" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_gteqf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6y27x")
+
+[node name="ItemTime" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="PanelDisabled" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2nknf")
+}
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BidButtonContainer/BidButton" to="." method="_on_bid_button_pressed"]
+[connection signal="timeout" from="ItemTime" to="." method="_on_item_time_timeout"]

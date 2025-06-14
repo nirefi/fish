@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://nrtxhcqlu78j"]
+
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="1_qeogc"]
+[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="1_s4bcr"]
+[ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="2_w8se5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k44y1"]
+bg_color = Color(0.0862745, 0.0862745, 0.0980392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqvmo"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x5tp"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="LoanDetails" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k44y1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PrincipalLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Loan principal:  $3000.00"
+label_settings = ExtResource("1_s4bcr")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InterestRateLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Interest rate: 10%"
+label_settings = ExtResource("1_s4bcr")
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InterestPaidLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Interest paid: $300.00"
+label_settings = ExtResource("1_s4bcr")
+
+[node name="PayoffButton" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqvmo")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PayoffButton"]
+layout_mode = 2
+texture = ExtResource("1_qeogc")
+expand_mode = 2
+
+[node name="PayLabel" type="Label" parent="MarginContainer/HBoxContainer/PayoffButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w8se5")
+theme_override_font_sizes/font_size = 36
+text = "Pay off »"
+horizontal_alignment = 1
+
+[node name="PayButton" type="Button" parent="MarginContainer/HBoxContainer/PayoffButton"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_w8se5")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_4x5tp")

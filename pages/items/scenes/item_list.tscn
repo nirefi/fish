@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://nb1dev1rybar"]
+
+[ext_resource type="Script" path="res://pages/items/scripts/auction_generator.gd" id="1_kuu7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gack0"]
+
+[node name="ItemList" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gack0")
+script = ExtResource("1_kuu7c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ItemListScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ItemListScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="ItemSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AIMoveTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ItemSpawnTimer" to="." method="_on_item_spawn_timer_timeout"]
+[connection signal="timeout" from="AIMoveTimer" to="." method="_on_ai_move_timer_timeout"]

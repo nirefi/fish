@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccsu2r2q0gswk"]
+
+[ext_resource type="StyleBox" uid="uid://dxfykvwb0p6v5" path="res://styles/item_unchanged.tres" id="1_cxb66"]
+[ext_resource type="Texture2D" uid="uid://c4kktsll1rih7" path="res://assets/sprites/fish-icons/snapper-icon.png" id="2_id80s"]
+[ext_resource type="FontFile" uid="uid://grerfhlep4mj" path="res://assets/fonts/Carlito-Regular.ttf" id="3_lmwy0"]
+[ext_resource type="Texture2D" uid="uid://b1xcid3xkabhb" path="res://styles/red_gradient.tres" id="4_g2140"]
+[ext_resource type="FontFile" uid="uid://t2hpkutmm130" path="res://assets/fonts/ArchivoBlack-Regular.ttf" id="5_0t2sg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8ocy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3il7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_513by"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hhqlm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xljqk"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nopt1"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="StorageItem" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_cxb66")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_id80s")
+expand_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DetailsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_colors/font_color = Color(0.533333, 0.8, 0.988235, 1)
+theme_override_fonts/font = ExtResource("3_lmwy0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g8ocy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3il7k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_513by")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hhqlm")
+text = "Snapper 100-45KG-10D-N"
+
+[node name="BidButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_xljqk")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+layout_mode = 2
+texture = ExtResource("4_g2140")
+expand_mode = 2
+
+[node name="BidText" type="Label" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0t2sg")
+theme_override_font_sizes/font_size = 36
+text = "Sell: $600 »"
+horizontal_alignment = 1
+
+[node name="BidButton" type="Button" parent="MarginContainer/VBoxContainer/BidButtonContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_0t2sg")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_nopt1")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://nltqeexsfhcg"]
+
+[ext_resource type="PackedScene" uid="uid://ccsu2r2q0gswk" path="res://pages/storage/scenes/storage_item.tscn" id="1_es5fa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7t8g"]
+
+[node name="StorageContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m7t8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ItemListScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ItemListScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+
+[node name="StorageItem" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem2" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem3" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem4" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem5" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem6" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
+
+[node name="StorageItem7" parent="MarginContainer/ItemListScrollContainer/GridContainer" instance=ExtResource("1_es5fa")]
+layout_mode = 2
